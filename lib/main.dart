@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'kalkulator_page.dart'; 
 
 void main() {
@@ -10,10 +11,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Tugas Flutter',
-      home: MyCalculator(), 
-    );
+    return GetMaterialApp(home: MyCalculator());
   }
 }

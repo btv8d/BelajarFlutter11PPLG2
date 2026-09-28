@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tugas_login_flutter/components/custom_text.dart';      
 import 'package:tugas_login_flutter/components/custom_textfield.dart'; 
-import 'package:tugas_login_flutter/components/custom_button.dart';   
+import 'package:tugas_login_flutter/components/custom_button.dart';
+import 'package:tugas_login_flutter/controllers/kalkulator_controller.dart';   
 
 class MyCalculator extends StatefulWidget {
   const MyCalculator({super.key});
@@ -12,42 +14,17 @@ class MyCalculator extends StatefulWidget {
 
 class _MyCalculatorState extends State<MyCalculator> {
   
+  final KalkulatorController controller = Get.put(KalkulatorController());
+  
+
   final TextEditingController txtAngka1 = TextEditingController();
   final TextEditingController txtAngka2 = TextEditingController();
-  
-  String hasil = '0';
-
-  
-  void hitung(String operator) {
-    setState(() {
-      double num1 = double.tryParse(txtAngka1.text) ?? 0;
-      double num2 = double.tryParse(txtAngka2.text) ?? 0;
-      double kalkulasi = 0;
-
-      if (operator == '+') {
-        kalkulasi = num1 + num2;
-      } else if (operator == '-') {
-        kalkulasi = num1 - num2;
-      } else if (operator == '×') {
-        kalkulasi = num1 * num2;
-      } else if (operator == '÷') {
-        if (num2 == 0) {
-          hasil = 'Error (Bagi 0)';
-          return;
-        }
-        kalkulasi = num1 / num2;
-      }
-
-     
-      hasil = kalkulasi.toStringAsFixed(kalkulasi.truncateToDouble() == kalkulasi ? 0 : 2);
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Calculator Custom'),
+        title: const Text('My Calculator Custom GetX'),
         backgroundColor: Colors.blue,
       ),
       body: Padding(
@@ -55,16 +32,16 @@ class _MyCalculatorState extends State<MyCalculator> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-           
-            CustomText(
-              text: 'Hasil: $hasil',
+            
+            Obx(() => CustomText(
+              text: 'Hasil: ${controller.hasilHitung.value}',
               fontSize: 28,
               fontWeight: FontWeight.bold,
               color: Colors.blueAccent,
-            ),
+            )),
             const SizedBox(height: 24),
             
-            
+           //num only
             Container(
               margin: const EdgeInsets.symmetric(vertical: 8),
               child: CustomTextfield(
@@ -73,7 +50,7 @@ class _MyCalculatorState extends State<MyCalculator> {
               ),
             ),
             
-            
+            //num only
             Container(
               margin: const EdgeInsets.symmetric(vertical: 8),
               child: CustomTextfield(
@@ -82,11 +59,12 @@ class _MyCalculatorState extends State<MyCalculator> {
               ),
             ),
             const SizedBox(height: 24),
-            
            
+            
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                // Tombol Tambah
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 4.0),
@@ -94,10 +72,11 @@ class _MyCalculatorState extends State<MyCalculator> {
                       textButton: '(+)',
                       buttonColor: Colors.blue,
                       textColor: Colors.white,
-                      onPressed: () => hitung('+'),
+                      onPressed: () => controller.hitung('+', txtAngka1.text, txtAngka2.text),
                     ),
                   ),
                 ),
+                // Tombol Kurang
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 4.0),
@@ -105,10 +84,11 @@ class _MyCalculatorState extends State<MyCalculator> {
                       textButton: '(-)',
                       buttonColor: Colors.orange,
                       textColor: Colors.white,
-                      onPressed: () => hitung('-'),
+                      onPressed: () => controller.hitung('-', txtAngka1.text, txtAngka2.text),
                     ),
                   ),
                 ),
+                // Tombol Kali
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 4.0),
@@ -116,10 +96,11 @@ class _MyCalculatorState extends State<MyCalculator> {
                       textButton: '(×)',
                       buttonColor: Colors.purple,
                       textColor: Colors.white,
-                      onPressed: () => hitung('×'),
+                      onPressed: () => controller.hitung('×', txtAngka1.text, txtAngka2.text),
                     ),
                   ),
                 ),
+                // Tombol Bagi
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 4.0),
@@ -127,7 +108,7 @@ class _MyCalculatorState extends State<MyCalculator> {
                       textButton: '(÷)',
                       buttonColor: Colors.green,
                       textColor: Colors.white,
-                      onPressed: () => hitung('÷'),
+                      onPressed: () => controller.hitung('÷', txtAngka1.text, txtAngka2.text),
                     ),
                   ),
                 ),
