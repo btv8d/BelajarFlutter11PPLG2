@@ -1,0 +1,98 @@
+import 'package:get/get.dart';
+import 'package:tugas_login_flutter/models/makanan_models.dart';
+
+class ListMakananController extends GetxController {
+  
+  List<MakananModel> makananList = [
+    MakananModel(
+      namaMakanan: "Nasi Goreng",
+      deskripsiMakanan: "Nasi yang digoreng dengan bumbu rempah",
+      hargaMakanan: "Rp 15.000",
+      gambarMakanan: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaewAFj9KWHPrFFMAM53z7VRoVSQpequc6hSXnQn3UNA&s=10",
+      ratingMakanan: "4.8",
+      kategoriMakanan: "Makanan Berat",
+      ulasanMakanan: "Rasanya sangat pas dan porsinya mengenyangkan!",
+    ),
+    MakananModel(
+      namaMakanan: "Mie Goreng",
+      deskripsiMakanan: "Mie yang digoreng dengan bumbu rempah",
+      hargaMakanan: "Rp 12.000",
+      gambarMakanan: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoLErZVRbTzHVBvkIqJhduRL6FLqFRCh0VFG1uRrNFhg&s=10",
+      ratingMakanan: "4.6",
+      kategoriMakanan: "Makanan Berat",
+      ulasanMakanan: "Mienya kenyal dan bumbunya meresap sempurna.",
+    ),
+    MakananModel(
+      namaMakanan: "Sate Ayam",
+      deskripsiMakanan: "Daging ayam yang ditusuk dan dimasak dengan bumbu kacang",
+      hargaMakanan: "Rp 20.000",
+      gambarMakanan: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-9-ZBb3EUrl-W6hGto151fV2DK0BQQbJtxxZbMyxdnQ&s=10",
+      ratingMakanan: "4.9",
+      kategoriMakanan: "Makanan Berat",
+      ulasanMakanan: "Bumbu kacangnya mantap dan dagingnya empuk banget.",
+    ),
+    MakananModel(
+      namaMakanan: "Rendang",
+      deskripsiMakanan: "Daging sapi yang dimasak dengan bumbu rempah hingga empuk",
+      hargaMakanan: "Rp 25.000",
+      gambarMakanan: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgzUN4e6chr8mltHiWy75Xu4FW_qMhyKwg-MR3xQloqg&s=10",
+      ratingMakanan: "5.0",
+      kategoriMakanan: "Makanan Berat",
+      ulasanMakanan: "Bumbu khas Padang yang sangat kaya rasa dan empuk.",
+    ),
+    MakananModel(
+      namaMakanan: "Gado-Gado",
+      deskripsiMakanan: "Sayuran yang disajikan dengan saus kacang",
+      hargaMakanan: "Rp 18.000",
+      gambarMakanan: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMCR5FKg9z82i3HbnnsTeugZhrfELVYgP7g9SUP7CUAw&s=10",
+      ratingMakanan: "4.5",
+      kategoriMakanan: "Makanan Sehat",
+      ulasanMakanan: "Sayurannya segar dan bumbu kacangnya gurih.",
+    ),
+    MakananModel(
+      namaMakanan: "Bakso Sapi",
+      deskripsiMakanan: "Bakso yang terbuat dari daging sapi yang dihaluskan dan dibentuk bulat",
+      hargaMakanan: "Rp 15.000",
+      gambarMakanan: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKm1k9sM6Dk9VhGU4ZKrPBxezEhm2cZzQQYNRlWx72Lw&s=10",
+      ratingMakanan: "4.7",
+      kategoriMakanan: "Makanan Berat",
+      ulasanMakanan: "Kuah kaldunya gurih hangat, baksonya terasa dagingnya.",
+    ),
+    MakananModel(
+      namaMakanan: "Soto Ayam",
+      deskripsiMakanan: "Sup ayam yang disajikan dengan nasi dan bumbu rempah",
+      hargaMakanan: "Rp 12.000",
+      gambarMakanan: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoLErZVRbTzHVBvkIqJhduRL6FLqFRCh0VFG1uRrNFhg&s=10",
+      ratingMakanan: "4.6",
+      kategoriMakanan: "Makanan Berat",
+      ulasanMakanan: "Kuahnya segar cocok dimakan saat cuaca dingin.",
+    ),
+    MakananModel(
+      namaMakanan: "Ayam Penyet",
+      deskripsiMakanan: "Ayam goreng yang disajikan dengan sambal dan lalapan",
+      hargaMakanan: "Rp 20.000",
+      gambarMakanan: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSK6BudeK9FgbH3NBRPqW7Xk9-y1gVBc2mEuaIq9txOA&s=10",
+      ratingMakanan: "4.8",
+      kategoriMakanan: "Makanan Pedas",
+      ulasanMakanan: "Sambalnya pedas nampol bikin ketagihan!",
+    ),
+    MakananModel(
+      namaMakanan: "Bubur Ayam",
+      deskripsiMakanan: "Bubur yang disajikan dengan daging ayam dan bumbu rempah",
+      hargaMakanan: "Rp 15.000",
+      gambarMakanan: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRepy4uZMBmkVj77c-mDEe71keiK9yjJaw5uEjBwqenXw&s=10",
+      ratingMakanan: "4.5",
+      kategoriMakanan: "Sarapan",
+      ulasanMakanan: "Tekstur buburnya lembut dan pas untuk sarapan.",
+    ),
+    MakananModel(
+      namaMakanan: "Nasi Uduk",
+      deskripsiMakanan: "Nasi yang dimasak dengan santan dan bumbu rempah",
+      hargaMakanan: "Rp 18.000",
+      gambarMakanan: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT05VdQhP8up8WzvM7lSlqkGGbUOG__fyBKghdA5JW3AQ&s=10",
+      ratingMakanan: "4.7",
+      kategoriMakanan: "Makanan Berat",
+      ulasanMakanan: "Rasanya gurih harum santan dengan lauk lengkap.",
+    ),
+  ];
+}
