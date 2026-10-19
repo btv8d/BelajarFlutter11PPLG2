@@ -34,14 +34,17 @@ class ListMakananPage extends StatelessWidget {
               child: InkWell(
                 borderRadius: BorderRadius.circular(12),
                 onTap: () {
-                  Get.to(() => const DetailMakananPage(), arguments: makanan);
+                  Get.toNamed(  
+                    '/detail_makanan',
+                    arguments: makanan,
+                  );
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Row(
                     children: [
                     
-                      ClipRRect(
+                      ClipRRect( //sudut rounded
                         borderRadius: BorderRadius.circular(10),
                         child: Image.network(
                           makanan.gambarMakanan,
@@ -75,7 +78,7 @@ class ListMakananPage extends StatelessWidget {
                             ),
                             const SizedBox(height: 4),
                             
-                            //categori makanan
+                            //category makanan
                             Container(
                               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                               decoration: BoxDecoration(
